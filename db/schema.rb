@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_05_16_002218) do
+ActiveRecord::Schema[8.0].define(version: 2025_05_16_004958) do
+  create_table "favourites", force: :cascade do |t|
+    t.integer "plant_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["plant_id"], name: "index_favourites_on_plant_id"
+  end
+
   create_table "plants", force: :cascade do |t|
     t.string "title", null: false
     t.string "image"
@@ -22,4 +29,6 @@ ActiveRecord::Schema[8.0].define(version: 2025_05_16_002218) do
     t.datetime "updated_at", null: false
     t.index ["title"], name: "index_plants_on_title", unique: true
   end
+
+  add_foreign_key "favourites", "plants"
 end

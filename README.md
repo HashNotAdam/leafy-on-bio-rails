@@ -1,24 +1,9 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a very quick and dirty rebuild of [Leafy on Rails](https://github.com/hstonehouse/leafy-on-rails) to create discussion with [Helen Stonehouse](https://github.com/hstonehouse)
 
-Things you may want to cover:
+## Getting started
 
-* Ruby version
+First, create your database with seed data: `bin/rails db:setup`.
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Then you can boot the Rails server like normal. Just remember to either use the dev script (`bin/dev`) or manually boot a Tailwind watcher (see `Profile.dev`).

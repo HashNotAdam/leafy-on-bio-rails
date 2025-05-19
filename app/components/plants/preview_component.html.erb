@@ -1,0 +1,12 @@
+<div class="<%= component_css_class %> relative h-64 w-80 rounded-lg shadow-md">
+  <%= image_tag plant.image, alt: plant.title, class: "object-cover w-full h-full rounded-lg" %>
+
+  <%= tag.h2(
+    class: %w[
+      absolute w-full bottom-0 px-4 rounded-b-lg
+      text-lg text-white font-semibold bg-stone-800/50
+    ]
+  ) do %>
+    <%= plant.title %>
+  <% end %>
+</div>

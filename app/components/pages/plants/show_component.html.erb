@@ -1,0 +1,45 @@
+<main class="container py-12 flex flex-col justify-self-center items-center">
+  <%= render(Plants::PreviewComponent.new(plant:)) %>
+
+  <h1 class="mt-4 text-2xl font-bold">
+    <%= plant.title %>
+  </h1>
+
+  <dl class="flex flex-col items-center mt-12">
+    <% if plant.light.present? %>
+      <dt class="text-green-600 pb-2">
+        Light
+      </dt>
+      <dd class="pb-4 text-sm">
+        <%= plant.light %>
+      </dd>
+    <% end %>
+
+    <% if plant.water.present? %>
+      <dt class="text-green-600 pb-2">
+        Water
+      </dt>
+      <dd class="pb-4 text-sm">
+        <%= plant.water %>
+      </dd>
+    <% end %>
+
+    <% if plant.pet_safe.present? %>
+      <dt class="text-green-600 pb-2">
+        Pet safe?
+      </dt>
+      <dd class="pb-4 text-sm">
+        <%= plant.pet_safe %>
+      </dd>
+    <% end %>
+
+    <% if plant.aliases.present? %>
+      <dt class="text-green-600 pb-2">
+        Other names
+      </dt>
+      <dd class="pb-4 text-sm">
+        <%= plant.aliases.join("<br>").html_safe %>
+      </dd>
+    <% end %>
+  </dl>
+</main>

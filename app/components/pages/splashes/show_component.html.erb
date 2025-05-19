@@ -1,0 +1,26 @@
+<main class="absolute h-full w-full bg-green-100">
+  <div class="flex flex-col items-center pt-38">
+    <p class="text-green-600 text-3xl">
+      Leafy
+    </p>
+
+    <%= tag.div(
+      id:"logo-image",
+      class: %w[
+        fa fa-solid fa-seedling
+        pt-10
+        text-5xl text-green-600
+        animate-[sway_1s_infinite] origin-[50%_100%_0]
+      ]
+    ) %>
+
+    <%= link_to(
+      "Enter",
+      plants_path,
+      id: "enter-button",
+      class: %w[
+        mt-12 px-5 py-2 bg-white border border-stone-200 rounded-full pointer text-stone-800
+      ]
+    ) %>
+  </div>
+</main>

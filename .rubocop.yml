@@ -773,6 +773,9 @@ Style/Dir:
 Style/DirEmpty:
   Enabled: true
 
+Style/Documentation:
+  Enabled: false
+
 Style/EachForSimpleLoop:
   Enabled: true
 
@@ -2483,6 +2486,7 @@ Style/RequireOrder:
   Description: Sort `require` and `require_relative` in alphabetical order.
   Enabled: true
   Exclude:
+    - config/application.rb
     - config/boot.rb
   SafeAutoCorrect: false
   VersionAdded: "1.40"

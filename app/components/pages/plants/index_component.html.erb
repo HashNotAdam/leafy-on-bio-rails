@@ -1,0 +1,21 @@
+<header class="w-full flex flex-col justify-center">
+  <div class="flex justify-center">
+    <h1 class="pt-8 text-2xl text-green-600 select-none">
+      Plant Directory
+    </h1>
+  </div>
+</header>
+
+<main class="container pb-12 flex justify-self-center justify-center">
+  <div class="plants pt-12 grid grid-cols-[1fr_1fr_1fr] gap-8">
+    <% plants.each do |plant| %>
+      <div class="plant relative h-64 w-80 bg-gray-200 rounded-lg shadow-md">
+        <%= image_tag plant.image, alt: plant.title, class: "object-cover w-full h-full rounded-lg" %>
+
+        <h2 class="absolute w-full bottom-0 px-4 text-lg text-white font-semibold bg-stone-800/50">
+          <%= plant.title %>
+        </h2>
+      </div>
+    <% end %>
+  </div>
+</main>

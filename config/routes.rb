@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
   resources :plants, only: %i[index]
 
+  resources :plant_searches, only: %i[create]
+
   # Defines the root path route ("/")
   root "splash#show"
 end

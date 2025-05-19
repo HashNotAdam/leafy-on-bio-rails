@@ -5,8 +5,6 @@ class ApplicationComponent < ViewComponent::Base
   include Turbo::FramesHelper
   include Turbo::StreamsHelper
 
-  private
-
   # Converts a component's class name to a CSS class name
   # Example: Module::MyComponent => module--my-component
   def component_css_class

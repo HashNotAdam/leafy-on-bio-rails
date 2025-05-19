@@ -1,0 +1,47 @@
+Capybara/CurrentPathExpectation:
+  Description: Checks that no expectations are set on Capybara's `current_path`.
+  Enabled: true
+  VersionAdded: "1.18"
+  VersionChanged: "2.0"
+  Reference: https://www.rubydoc.info/gems/rubocop-rspec/RuboCop/Cop/RSpec/Capybara/CurrentPathExpectation
+
+Capybara/MatchStyle:
+  Description: Checks for usage of deprecated style methods.
+  Enabled: true
+  VersionAdded: "2.17"
+  Reference: https://www.rubydoc.info/gems/rubocop-rspec/RuboCop/Cop/RSpec/Capybara/MatchStyle
+
+Capybara/NegationMatcher:
+  Description: Enforces use of `have_no_*` or `not_to` for negated expectations.
+  Enabled: true
+  VersionAdded: "2.14"
+  EnforcedStyle: not_to
+  SupportedStyles:
+    - have_no
+    - not_to
+  Reference: https://www.rubydoc.info/gems/rubocop-rspec/RuboCop/Cop/RSpec/Capybara/NegationMatcher
+
+Capybara/SpecificActions:
+  Description: Checks for there is a more specific actions offered by Capybara.
+  Enabled: true
+  VersionAdded: "2.14"
+  Reference: https://www.rubydoc.info/gems/rubocop-rspec/RuboCop/Cop/RSpec/Capybara/SpecificActions
+
+Capybara/SpecificFinders:
+  Description: Checks if there is a more specific finder offered by Capybara.
+  Enabled: true
+  VersionAdded: "2.13"
+  Reference: https://www.rubydoc.info/gems/rubocop-rspec/RuboCop/Cop/RSpec/Capybara/SpecificFinders
+
+Capybara/SpecificMatcher:
+  Description: Checks for there is a more specific matcher offered by Capybara.
+  Enabled: true
+  VersionAdded: "2.12"
+  Reference: https://www.rubydoc.info/gems/rubocop-rspec/RuboCop/Cop/RSpec/Capybara/SpecificMatcher
+
+Capybara/VisibilityMatcher:
+  Description: Checks for boolean visibility in Capybara finders.
+  Enabled: true
+  VersionAdded: "1.39"
+  VersionChanged: "2.0"
+  Reference: https://www.rubydoc.info/gems/rubocop-rspec/RuboCop/Cop/RSpec/Capybara/VisibilityMatcher

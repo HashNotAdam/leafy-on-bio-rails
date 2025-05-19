@@ -1,0 +1,75 @@
+FactoryBot/AssociationStyle:
+  Description: Use a consistent style to define associations.
+  Enabled: false
+  Safe: false
+  VersionAdded: '2.23'
+  VersionChanged: '2.24'
+  EnforcedStyle: implicit
+  SupportedStyles:
+    - explicit
+    - implicit
+  NonImplicitAssociationMethodNames: ~
+  Reference: https://www.rubydoc.info/gems/rubocop-factory_bot/RuboCop/Cop/FactoryBot/AssociationStyle
+
+FactoryBot/AttributeDefinedStatically:
+  Description: Always declare attribute values as blocks.
+  Enabled: true
+  Include:
+    - "**/spec/factories.rb"
+    - "**/spec/factories/**/*.rb"
+    - "**/features/support/factories/**/*.rb"
+  VersionAdded: "1.28"
+  VersionChanged: "2.23"
+  Reference: https://www.rubydoc.info/gems/rubocop-rspec/RuboCop/Cop/FactoryBot/AttributeDefinedStatically
+
+FactoryBot/ConsistentParenthesesStyle:
+  Description: Use a consistent style for parentheses in factory bot calls.
+  Enabled: true
+  EnforcedStyle: require_parentheses
+  SupportedStyles:
+    - require_parentheses
+    - omit_parentheses
+  VersionAdded: "2.14"
+  Reference: https://www.rubydoc.info/gems/rubocop-rspec/RuboCop/Cop/FactoryBot/ConsistentParenthesesStyle
+
+FactoryBot/CreateList:
+  Description: Checks for create_list usage.
+  Enabled: true
+  Include:
+    - "**/spec/**/*"
+    - "**/features/support/factories/**/*.rb"
+  EnforcedStyle: create_list
+  SupportedStyles:
+    - create_list
+    - n_times
+  VersionAdded: "1.25"
+  VersionChanged: "2.23"
+  Reference: https://www.rubydoc.info/gems/rubocop-rspec/RuboCop/Cop/FactoryBot/CreateList
+
+FactoryBot/FactoryClassName:
+  Description: Use string value when setting the class attribute explicitly.
+  Enabled: true
+  Include:
+    - "**/spec/factories.rb"
+    - "**/spec/factories/**/*.rb"
+    - "**/features/support/factories/**/*.rb"
+  VersionAdded: "1.37"
+  VersionChanged: "2.23"
+  Reference: https://www.rubydoc.info/gems/rubocop-rspec/RuboCop/Cop/FactoryBot/FactoryClassName
+
+FactoryBot/FactoryNameStyle:
+  Description: Checks for name style for argument of FactoryBot::Syntax::Methods.
+  Enabled: true
+  VersionAdded: "2.16"
+  EnforcedStyle: symbol
+  SupportedStyles:
+    - symbol
+    - string
+  Reference: https://www.rubydoc.info/gems/rubocop-rspec/RuboCop/Cop/FactoryBot/FactoryNameStyle
+
+FactoryBot/SyntaxMethods:
+  Description: Use shorthands from `FactoryBot::Syntax::Methods` in your specs.
+  Enabled: true
+  SafeAutoCorrect: false
+  VersionAdded: "2.7"
+  Reference: https://www.rubydoc.info/gems/rubocop-rspec/RuboCop/Cop/FactoryBot/SyntaxMethods

@@ -1,0 +1,242 @@
+# standard-performance enabled cops as at version 1.2.0
+Performance/BigDecimalWithNumericArgument:
+  Enabled: true
+
+Performance/BindCall:
+  Enabled: true
+
+Performance/BlockGivenWithExplicitBlock:
+  Enabled: true
+
+Performance/Caller:
+  Enabled: true
+
+Performance/CompareWithBlock:
+  Enabled: true
+
+Performance/ConcurrentMonotonicTime:
+  Enabled: true
+
+Performance/ConstantRegexp:
+  Enabled: true
+
+Performance/Count:
+  Enabled: true
+
+Performance/Detect:
+  Enabled: true
+
+Performance/DoubleStartEndWith:
+  Enabled: true
+  IncludeActiveSupportAliases: false
+
+Performance/EndWith:
+  Enabled: true
+
+Performance/FixedSize:
+  Enabled: true
+
+Performance/FlatMap:
+  Enabled: true
+  EnabledForFlattenWithoutParams: false
+
+Performance/InefficientHashSearch:
+  Enabled: true
+
+Performance/RangeInclude:
+  Enabled: true
+
+Performance/RedundantMatch:
+  Enabled: true
+
+Performance/RedundantMerge:
+  Enabled: true
+  MaxKeyValuePairs: 2
+
+Performance/RedundantSortBlock:
+  Enabled: true
+
+Performance/RedundantSplitRegexpArgument:
+  Enabled: true
+
+Performance/RedundantStringChars:
+  Enabled: true
+
+Performance/RegexpMatch:
+  Enabled: true
+
+Performance/ReverseEach:
+  Enabled: true
+
+Performance/ReverseFirst:
+  Enabled: true
+
+Performance/Size:
+  Enabled: true
+
+Performance/SortReverse:
+  Enabled: true
+
+Performance/Squeeze:
+  Enabled: true
+
+Performance/StartWith:
+  Enabled: true
+
+Performance/StringIdentifierArgument:
+  Enabled: true
+
+Performance/StringReplacement:
+  Enabled: true
+
+Performance/UnfreezeString:
+  Enabled: true
+
+Performance/UriDefaultParser:
+  Enabled: true
+
+##############
+# CUSTOM RULES
+##############
+
+Performance/AncestorsInclude:
+  Description: "Use `A <= B` instead of `A.ancestors.include?(B)`."
+  Reference: "https://github.com/JuanitoFatas/fast-ruby#ancestorsinclude-vs--code"
+  Enabled: true
+  Safe: false
+  VersionAdded: "1.7"
+
+Performance/ArraySemiInfiniteRangeSlice:
+  Description: "Identifies places where slicing arrays with semi-infinite ranges can be replaced by `Array#take` and `Array#drop`."
+  # This cop was created due to a mistake in microbenchmark.
+  # Refer https://github.com/rubocop/rubocop-performance/pull/175#issuecomment-731892717
+  Enabled: false
+  # Unsafe for string slices because strings do not have `#take` and `#drop` methods.
+  Safe: false
+  VersionAdded: "1.9"
+
+Performance/CaseWhenSplat:
+  Description: >-
+    Reordering `when` conditions with a splat to the end
+    of the `when` branches can improve performance.
+  Enabled: true
+  SafeAutoCorrect: false
+  VersionAdded: "0.34"
+  VersionChanged: "1.13"
+
+Performance/Casecmp:
+  Description: >-
+    Use `casecmp` rather than `downcase ==`, `upcase ==`, `== downcase`, or `== upcase`..
+  Reference: "https://github.com/JuanitoFatas/fast-ruby#stringcasecmp-vs-stringdowncase---code"
+  Enabled: true
+  Safe: false
+  VersionAdded: "0.36"
+
+Performance/ChainArrayAllocation:
+  Description: >-
+    Instead of chaining array methods that allocate new arrays, mutate an
+    existing array.
+  Reference: "https://twitter.com/schneems/status/1034123879978029057"
+  Enabled: true
+  VersionAdded: "0.59"
+
+Performance/CollectionLiteralInLoop:
+  Description: "Extract Array and Hash literals outside of loops into local variables or constants."
+  Enabled: true
+  VersionAdded: "1.8"
+  # Min number of elements to consider an offense
+  MinSize: 1
+
+Performance/DeletePrefix:
+  Description: "Use `delete_prefix` instead of `gsub`."
+  Enabled: true
+  Safe: false
+  SafeMultiline: true
+  VersionAdded: "1.6"
+  VersionChanged: "1.11"
+
+Performance/DeleteSuffix:
+  Description: "Use `delete_suffix` instead of `gsub`."
+  Enabled: true
+  Safe: false
+  SafeMultiline: true
+  VersionAdded: "1.6"
+  VersionChanged: "1.11"
+
+Performance/IoReadlines:
+  Description: "Use `IO.each_line` (`IO#each_line`) instead of `IO.readlines` (`IO#readlines`)."
+  Reference: "https://docs.gitlab.com/ee/development/performance.html#reading-from-files-and-other-data-sources"
+  Enabled: true
+  VersionAdded: "1.7"
+
+Performance/MapCompact:
+  Description: "Use `filter_map` instead of `collection.map(&:do_something).compact`."
+  Enabled: true
+  SafeAutoCorrect: false
+  VersionAdded: "1.11"
+
+Performance/MapMethodChain:
+  Description: "Checks if the `map` method is used in a chain."
+  Enabled: true
+  Safe: false
+  VersionAdded: "1.19"
+
+Performance/MethodObjectAsBlock:
+  Description: "Use block explicitly instead of block-passing a method object."
+  Reference: "https://github.com/JuanitoFatas/fast-ruby#normal-way-to-apply-method-vs-method-code"
+  Enabled: true
+  VersionAdded: "1.9"
+
+Performance/OpenStruct:
+  Description: "Use `Struct` instead of `OpenStruct`."
+  Enabled: true
+  VersionAdded: "0.61"
+  Safe: false
+  Exclude:
+    - "spec/**/*"
+    - "test/**/*"
+
+Performance/RedundantBlockCall:
+  Description: "Use `yield` instead of `block.call`."
+  Reference: "https://github.com/JuanitoFatas/fast-ruby#proccall-and-block-arguments-vs-yieldcode"
+  Enabled: true
+  VersionAdded: "0.36"
+
+Performance/RedundantEqualityComparisonBlock:
+  Description: >-
+    Checks for uses `Enumerable#all?`, `Enumerable#any?`, `Enumerable#one?`,
+    or `Enumerable#none?` are compared with `===` or similar methods in block.
+  Reference: "https://github.com/rails/rails/pull/41363"
+  Enabled: true
+  Safe: false
+  AllowRegexpMatch: true
+  VersionAdded: "1.10"
+
+Performance/SelectMap:
+  Description: "Use `filter_map` instead of `ary.select(&:foo).map(&:bar)`."
+  Enabled: true
+  VersionAdded: "1.11"
+
+Performance/StringInclude:
+  Description: "Use `String#include?` instead of a regex match with literal-only pattern."
+  Enabled: true
+  SafeAutoCorrect: false
+  VersionAdded: "1.7"
+  VersionChanged: "1.12"
+
+Performance/Sum:
+  Description: "Use `sum` instead of a custom array summation."
+  SafeAutoCorrect: true
+  Reference: "https://blog.bigbinary.com/2016/11/02/ruby-2-4-introduces-enumerable-sum.html"
+  Enabled: "pending"
+  VersionAdded: "1.8"
+  VersionChanged: "1.13"
+  OnlySumOrWithInitialValue: false
+
+Performance/TimesMap:
+  Description: "Checks for .times.map calls."
+  Enabled: true
+  # See https://github.com/rubocop/rubocop/issues/4658
+  SafeAutoCorrect: false
+  VersionAdded: "0.36"
+  VersionChanged: "1.13"

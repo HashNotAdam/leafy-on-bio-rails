@@ -9,5 +9,9 @@ module Plants
 
       @plant = plant
     end
+
+    def favourite?
+      plant.favourite.present?
+    end
   end
 end

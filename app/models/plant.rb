@@ -2,6 +2,7 @@
 
 class Plant < ApplicationRecord
   validates :title, presence: true, uniqueness: true
+  has_one :favourite, dependent: :destroy
 end
 
 # == Schema Information
